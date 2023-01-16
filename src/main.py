@@ -87,3 +87,15 @@ async def main():
                 await ctx.reply(f"```diff\n- Extension Already Loaded\n---> {e}```")
             except discord.ext.commands.ExtensionError as e:
                 await ctx.reply(f"```diff\n- Extension Error\n---> {e}```")
+            except discord.ext.commands.ExtensionFailed as e:
+                await ctx.reply(f"```diff\n- Extension Failed\n---> {e}```")
+            except discord.ext.commands.ExtensionNotFound as e:
+                await ctx.reply(f"```diff\n- Extension Not Found\n---> {e}```")
+            except discord.ext.commands.ExtensionNotLoaded as e:
+                await ctx.reply(f"```diff\n- Extension Not Loaded\n---> {e}```")
+                
+        print(Fore.LIGHTGREEN_EX + "[SUCCESS]" + Fore.RESET + " Bot is running")
+            
+        await bot.start("MTAwODc4MjgxOTQxNTI5ODExOQ.G4HR4y.rnyUTscr2n7wyt1z2FvxsyfBs6E1fOdxu4yBjI")
+
+asyncio.run(main())

@@ -18,7 +18,6 @@ async def a_users_db(user, action: str = None, specific = None):
         data = json.load(f)
 
     if "%s %s" % (user, user.id) not in data["Users"]:
-        print("d")
         data["Users"].append("%s %s" % (user, user.id))
         with open('database/users.json', 'w') as f:
             json.dump(data, f, indent=4)
