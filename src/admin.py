@@ -11,7 +11,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
 
-bot = Bot(command_prefix=".", intents=discord.Intents.all(), owner_ids=[497903117241810945])
+bot = Bot(command_prefix=".", intents=discord.Intents.all(), owner_ids=[497903117241810945, 567487802900480000])
 
 async def a_users_db(user, action: str = None, specific = None):
     with open('database/users.json', 'r') as f:

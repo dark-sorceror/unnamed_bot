@@ -27,7 +27,7 @@ class UnnamedBot(commands.Bot):
         testing_guild_id: Optional[int] = None, 
         **kwargs
     ):
-        super().__init__(command_prefix=".", intents=discord.Intents.all(), owner_ids=[497903117241810945])
+        super().__init__(command_prefix=".", intents=discord.Intents.all(), owner_ids=[497903117241810945, 567487802900480000])
         self.testing_guild_id = testing_guild_id
         self.initial_extensions = initial_extensions
         
