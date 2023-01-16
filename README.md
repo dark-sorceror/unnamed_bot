@@ -1,2 +1,1 @@
-# unnamed_bot
- cool bot
+Coming Soon!
