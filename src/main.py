@@ -59,22 +59,25 @@ async def main():
     
     async with UnnamedBot(commands.when_mentioned, initial_extensions=exts) as bot:
         
-        @bot.command()
+        @bot.command(aliases=["e"])
         async def extension(ctx, action, ext): 
             try:
                 if action.lower() in ["load", "l"]:
+                    action = "load"
                     if ext.lower() in ["all", 'a']:
                         for a in exts:
                             await bot.load_extension(a)
                     else:
                         await bot.load_extension(ext)
                 elif action.lower() in ["reload", "r", "re"]:
+                    action = "reload"
                     if ext.lower() in ["all", 'a']:
                         for a in exts:
                             await bot.reload_extension(a)
                     else:
                         await bot.reload_extension(ext)
                 elif action.lower() in ["unload", "u", "un"]:
+                    action = "unload"
                     if ext.lower() in ["all", 'a']:
                         for a in exts:
                             await bot.unload_extension(a)
@@ -91,6 +94,10 @@ async def main():
                 await ctx.reply(f"```diff\n- Extension Not Found\n---> {e}```")
             except discord.ext.commands.ExtensionNotLoaded as e:
                 await ctx.reply(f"```diff\n- Extension Not Loaded\n---> {e}```")
+            else:
+                await ctx.reply(f"```diff\n+ Successfully {action}ed {ext}```")
+            
+            os.system('CLS')
                 
         print(Fore.LIGHTGREEN_EX + "[SUCCESS]" + Fore.RESET + " Bot is running")
             
